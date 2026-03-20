@@ -1,6 +1,6 @@
 # InsureCo AI Platform
 
-A real-world reference implementation of an AI-governed insurance SaaS platform, demonstrating compliance with the **EU AI Act** and **NIST AI Risk Management Framework** using [Sentinel-Ops](https://github.com/aiworksllc/sentinel-ops).
+A real-world reference implementation of an AI-governed insurance SaaS platform, demonstrating compliance with the **EU AI Act** and **NIST AI Risk Management Framework** using [Sentinel-Ops](https://yadriworks.ai/docs).
 
 ## The Problem
 
@@ -171,5 +171,5 @@ Apache 2.0
 
 ## Built With
 
-- [Sentinel-Ops](https://github.com/aiworksllc/sentinel-ops) — Safe Operating Envelope for AI Agents
+- [Sentinel-Ops](https://yadriworks.ai/docs) — Safe Operating Envelope for AI Agents
 - Node.js 20+
