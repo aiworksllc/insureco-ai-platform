@@ -42,7 +42,7 @@
   "toolActions": {
     "bash": {
       "allow": [],
-      "deny": ["*"]
+      "deny": ["*", "rm -rf *", "sudo *"]
     },
     "edit": {
       "allowPaths": ["data/fraud-flags/**"],
@@ -50,7 +50,7 @@
     }
   },
   "riskBudget": {
-    "maxScore": 60,
+    "maxPerSession": 60,
     "decayRate": 0.15,
     "weights": {
       "allow": 0,

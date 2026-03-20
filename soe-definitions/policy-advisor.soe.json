@@ -37,7 +37,7 @@
   "toolActions": {
     "bash": {
       "allow": [],
-      "deny": ["*"]
+      "deny": ["*", "rm -rf *", "sudo *"]
     },
     "edit": {
       "allowPaths": [],
@@ -45,7 +45,7 @@
     }
   },
   "riskBudget": {
-    "maxScore": 40,
+    "maxPerSession": 40,
     "decayRate": 0.2,
     "weights": {
       "allow": 0,

@@ -42,7 +42,7 @@
   "toolActions": {
     "bash": {
       "allow": [],
-      "deny": ["*"]
+      "deny": ["*", "rm -rf *", "sudo *"]
     },
     "edit": {
       "allowPaths": ["data/risk-assessments/**"],
@@ -50,7 +50,7 @@
     }
   },
   "riskBudget": {
-    "maxScore": 70,
+    "maxPerSession": 70,
     "decayRate": 0.1,
     "weights": {
       "allow": 0,
