@@ -1,0 +1,32 @@
+name: Confidential Data Check
+on: [push, pull_request]
+
+jobs:
+  scrub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Scan for confidential patterns
+        run: |
+          echo "Scanning for confidential data patterns..."
+          PATTERNS="334333507883|AKIAU3V6|srinivasvaravooru|gayathri|aiworksllc\.biz|ethicalzen_admin|nat-0829ab|soe-sentinel-ops|sentinel-ops-marketplace-assets"
+
+          FOUND=$(grep -rEn "$PATTERNS" \
+            --include="*.js" --include="*.json" --include="*.md" \
+            --include="*.yaml" --include="*.yml" --include="*.html" \
+            . 2>/dev/null | grep -v ".git/" | grep -v node_modules || true)
+
+          if [ -n "$FOUND" ]; then
+            echo "::error::Confidential data detected in the following files:"
+            echo "$FOUND"
+            echo ""
+            echo "Replace with safe dummy values before committing:"
+            echo "  AWS Account ID: 123456789012"
+            echo "  IAM Key: AKIAIOSFODNN7EXAMPLE"
+            echo "  File paths: /home/user/workspace/..."
+            echo "  Email: admin@example.com"
+            exit 1
+          fi
+
+          echo "Clean — no confidential patterns found."
