@@ -1,5 +1,8 @@
 name: Confidential Data Check
-on: [push, pull_request]
+on:
+  # Manual runs only (YadriWorks CI cost policy, 2026-11-20). Start a run from the
+  # Actions tab or with: gh workflow run <this file> --ref <branch-or-tag>
+  workflow_dispatch:
 
 jobs:
   scrub:
